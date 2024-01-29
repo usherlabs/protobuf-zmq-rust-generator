@@ -50,7 +50,7 @@ Given these, we have 2 patterns in operation:
 
 The data transferred should be `["SubscribeToItems", SubscriptionItem]`.
 
-- Pub-sub methods should start with "SubscribeTo...".
+- Pub-sub methods should start with "SubscribeTo...". Later we will provide a idiomatic way to define this leveraging protobuf options.
 - Clients can subscribe and filter events using the `methodName` message.
 - The `.proto` file defined return type should be a data stream.
 
