@@ -57,7 +57,8 @@ impl MyServerServiceServer {
             reply_handlers,
         }
     }
-    pub fn start_listening(&self) -> () {
+    /// Starts listening for requests
+    pub fn start_listening(&self) {
         loop {
             let rep_socket = self.rep_socket.lock().unwrap();
             let poll_result = rep_socket.poll(zmq::POLLIN, 0);
@@ -75,7 +76,7 @@ impl MyServerServiceServer {
                     continue;
                 }
             };
-            if message.len() < 3 {
+            if message.len() < 4 {
                 continue;
             }
             let identity = message[0].clone();

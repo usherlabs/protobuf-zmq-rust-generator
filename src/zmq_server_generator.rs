@@ -25,8 +25,11 @@ impl ServiceGenerator for ZmqServerGenerator {
             }}
             impl {name}Server {{
                 pub fn new(
+                        // path where we'll bind the PUB socket
                         pubsub_path: String,
+                        // path where we'll bind the ROUTER socket
                         reply_path: String,
+                        // handlers for the server requests
                         reply_handlers: Arc<dyn {name}Handlers + Send + Sync>,
                 ) -> Self {{
                     let pub_socket = create_socket(&pubsub_path, zmq::PUB);
@@ -37,7 +40,8 @@ impl ServiceGenerator for ZmqServerGenerator {
                         reply_handlers,
                     }}
                 }}
-                pub fn start_listening(&self) -> () {{
+                /// Starts listening for requests
+                pub fn start_listening(&self) {{
                     loop {{
                         let rep_socket = self.rep_socket.lock().unwrap();
                         let poll_result = rep_socket.poll(zmq::POLLIN, 0);
@@ -58,7 +62,7 @@ impl ServiceGenerator for ZmqServerGenerator {
                             }}
                         }};
                         // message envelop: [identity, blank, request_id, method_name, input]
-                        if message.len() < 3 {{
+                        if message.len() < 4 {{
                             continue;
                         }}
                         let identity = message[0].clone();
