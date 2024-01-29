@@ -1,0 +1,38 @@
+syntax = "proto3";
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.MethodOptions {
+  optional string zmq_type = 50000;
+}
+
+package test_service;
+
+
+// ====== SUBSCRIPTION DEFINITIONS ======
+message EmptyInput {}
+
+message SubscriptionItem {
+  string data = 1;
+}
+
+
+// ====== REQUEST DEFINITIONS ======
+message MyRequestInput {
+  int32 time_to_sleep = 1;
+}
+
+message MyRequestResult {
+  bool all_ok = 1;
+  string message = 2;
+}
+
+
+service MyServerService {
+  rpc SubscribeToItems(EmptyInput) returns (stream SubscriptionItem) {
+    option (zmq_type) = 'sub';
+  }
+
+  rpc MyRequestMethod(MyRequestInput) returns (MyRequestResult) {
+    option (zmq_type) = 'reply';
+  }
+}
