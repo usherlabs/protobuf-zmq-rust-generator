@@ -1,6 +1,11 @@
 # protobuf-zqm-rust-generator
 
-This crate works with [`prost`](https://github.com/tokio-rs/prost) to develop a service generator for a ZMQ + Protobuf implementation.
+This crate works with [`prost`](https://github.com/tokio-rs/prost) to develop a service generator for
+a [ZeroMQ](https://zeromq.org/) + [Protobuf](https://protobuf.dev/) implementation, aiding in efficient data
+transmission between processes via sockets. It supports both the pub-sub and request-reply patterns.
+
+Originally designed to facilitate communication between a NodeJS client and a Rust server, this package can be adapted
+to any language that adheres to this protocol.
 
 ## How to Use
 
@@ -50,7 +55,8 @@ Given these, we have 2 patterns in operation:
 
 The data transferred should be `["SubscribeToItems", SubscriptionItem]`.
 
-- Pub-sub methods should start with "SubscribeTo...". Later we will provide a idiomatic way to define this leveraging protobuf options.
+- Pub-sub methods should start with "SubscribeTo...". Later we will provide a idiomatic way to define this leveraging
+  protobuf options.
 - Clients can subscribe and filter events using the `methodName` message.
 - The `.proto` file defined return type should be a data stream.
 
@@ -83,6 +89,13 @@ The data transferred should be `["SubscribeToItems", SubscriptionItem]`.
 It's possible to use both patterns on the same service:
 Note: Currently, we only support building Server implementations with this package. Future updates may include client
 implementations.
+
+## Resources
+
+- [protobuf-zqm-ts-transport](https://github.com/usherlabs/protobuf-zqm-rust-generator): The NodeJS implementation that
+  permits us to communicate using this protocol
+- [ZeroMQ](https://zeromq.org/): The messaging library used to transmit data between processes
+- [Prost](https://github.com/tokio-rs/prost): The library used to generate Rust code from protobuf files
 
 ## Contributing
 
