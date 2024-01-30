@@ -1,4 +1,4 @@
-# protobuf-zqm-rust-generator
+# protobuf-zmq-rust-generator
 
 This crate works with [`prost`](https://github.com/tokio-rs/prost) to develop a service generator for
 a [ZeroMQ](https://zeromq.org/) + [Protobuf](https://protobuf.dev/) implementation, aiding in efficient data
@@ -95,7 +95,7 @@ implementations.
 
 ## Resources
 
-- [protobuf-zqm-ts-transport](https://github.com/usherlabs/protobuf-zqm-rust-generator): The NodeJS implementation that
+- [protobuf-zmq-ts-transport](https://github.com/usherlabs/protobuf-zmq-ts-transport): The NodeJS implementation that
   permits us to communicate using this protocol
 - [ZeroMQ](https://zeromq.org/): The messaging library used to transmit data between processes
 - [Prost](https://github.com/tokio-rs/prost): The library used to generate Rust code from protobuf files

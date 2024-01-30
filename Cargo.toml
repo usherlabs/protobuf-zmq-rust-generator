@@ -1,9 +1,9 @@
 [package]
-name = "protobuf-zqm-rust-generator"
+name = "protobuf-zmq-rust-generator"
 
 version = "0.1.0"
 edition = "2021"
-repository = "https://github.com/usherlabs/protobuf-zqm-rust-generator.git"
+repository = "https://github.com/usherlabs/protobuf-zmq-rust-generator.git"
 license = "MIT"
 readme = "README.md"
 categories = ["compilers", "network-programming", "development-tools::build-utils"]

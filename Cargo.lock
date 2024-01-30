@@ -542,7 +542,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "protobuf-zqm-rust-gen"
+name = "protobuf-zmq-rust-generator"
 version = "0.1.0"
 dependencies = [
  "futures",
