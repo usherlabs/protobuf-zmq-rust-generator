@@ -28,7 +28,10 @@ Now to operate a service server:
 
 Check our test files for comprehensive examples.
 
-## Requirements
+## Implementation Details
+In this section, we will discuss the design decisions that went into this package. It's not necessary to understand every detail to use this package, but it may be helpful to understand its limitations.
+
+### Requirements
 
 - Aim: Enable inter-process communication with minimal modifications when extending the API
 - Provide type safety
