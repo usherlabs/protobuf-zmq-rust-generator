@@ -9,9 +9,10 @@ to any language that adheres to this protocol.
 
 ## How to Use
 
-1. Create a `build.rs` file in your project's root. Look
+1. Install this crate as a `build-dependency` in your `Cargo.toml` file.
+2. Create a `build.rs` file in your project's root. Look
    to [prost-build documentation](https://docs.rs/prost-build/latest/prost_build/) for detailed instructions.
-2. Utilize our service generator during the build process:
+3. Utilize our service generator during the build process:
      ```rust
         prost_build::Config::new()
         // Optional: defaults to $OUT, can be changed for autocomplete support
@@ -19,7 +20,7 @@ to any language that adheres to this protocol.
         .service_generator(Box::new(ZmqServerGenerator {})) // here
         .compile_protos(& ["your_proto_file.proto"], & ["your/proto/location/"])
      ```
-3. The generator will create a `your_proto_file.rs` in the `out_dir`, containing the generated code.
+4. The generator will create a `your_proto_file.rs` in the `out_dir`, containing the generated code.
 
 Now to operate a service server:
 
