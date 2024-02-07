@@ -1,7 +1,7 @@
 [package]
 name = "protobuf-zmq-rust-generator"
 
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 repository = "https://github.com/usherlabs/protobuf-zmq-rust-generator"
 description = "A prost/protobuf service generator for rust that generates a zmq server"
